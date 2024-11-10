@@ -1,0 +1,61 @@
+<div class="user-list-container">
+    <!-- Table Title -->
+    <div class="table-title">
+        <h3>List Users</h3>
+    </div>
+
+    <table mat-table [dataSource]="users" class="mat-elevation-z8 custom-table">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let user">
+                <div class="name-cell">
+                    <strong>{{user.name}}</strong>
+                    <p class="email">{{user.email}}</p>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef> Role </th>
+            <td mat-cell *matCellDef="let user">
+                <span [ngClass]="{'role-badge': true, 
+                                  'super-admin': user.role === 'Super Admin', 
+                                  'admin': user.role === 'Admin', 
+                                  'hr-admin': user.role === 'HR Admin', 
+                                  'employee': user.role === 'Employee'}">
+                    {{ user.role }}
+                </span>
+            </td>
+        </ng-container>
+
+        <!-- Create Date Column -->
+        <ng-container matColumnDef="createDate">
+            <th mat-header-cell *matHeaderCellDef> Create Date </th>
+            <td mat-cell *matCellDef="let user"> {{user.createDate}} </td>
+        </ng-container>
+
+        <!-- Role Description Column -->
+        <ng-container matColumnDef="roleDescription">
+            <th mat-header-cell *matHeaderCellDef> Role Description </th>
+            <td mat-cell *matCellDef="let user"> {{user.roleDescription}} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let user">
+                <button mat-icon-button color="primary" aria-label="Edit user">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" aria-label="Delete user">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

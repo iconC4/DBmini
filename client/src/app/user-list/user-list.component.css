@@ -1,0 +1,140 @@
+/* Container for the user list */
+
+.user-list-container {
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    /* Reduced shadow for a softer look */
+}
+
+
+/* Table Title Styling */
+
+.table-title {
+    background-color: #f7f9fc;
+    /* Slightly lighter background for subtle contrast */
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.table-title h3 {
+    font-size: 18px;
+    /* Increased font size for emphasis */
+    font-weight: 600;
+    color: #2a3f54;
+    /* Darker color for better readability */
+    margin: 0;
+}
+
+
+/* General Table Styling */
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 20px;
+    /* Adjusted padding for a more balanced look */
+    font-size: 14px;
+}
+
+th {
+    background-color: #f0f4f8;
+    /* Slightly lighter blue-gray for a soft look */
+    font-weight: 600;
+    color: #5f6368;
+    /* Darker text color */
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+td {
+    color: #4a4a4a;
+    border-bottom: 1px solid #f0f4f8;
+    /* Matches header background color for consistency */
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Name Cell Styling */
+
+.name-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-cell strong {
+    font-weight: 600;
+    color: #2a3f54;
+    /* Darker color for name */
+}
+
+.name-cell .email {
+    font-size: 12px;
+    color: #8c8c8c;
+    /* Subtle gray for email text */
+    margin: 0;
+}
+
+
+/* Role Badge Styling */
+
+.role-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    /* Slightly smaller padding for a compact look */
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.super-admin {
+    background-color: #1e88e5;
+    /* Blue for Super Admin */
+}
+
+.admin {
+    background-color: #42a5f5;
+    /* Light Blue for Admin */
+}
+
+.hr-admin {
+    background-color: #64b5f6;
+    /* Lighter Blue for HR Admin */
+}
+
+.employee {
+    background-color: #e0e0e0;
+    /* Gray for Employee */
+    color: #4a4a4a;
+}
+
+
+/* Action Button Styling */
+
+button.mat-icon-button {
+    color: #999999;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 5px;
+}
+
+button.mat-icon-button:hover {
+    background-color: #f7f9fc;
+    /* Light background for hover effect */
+    color: #3f51b5;
+    /* Primary blue color for hover */
+    border-radius: 50%;
+    /* Rounded buttons for a modern look */
+}

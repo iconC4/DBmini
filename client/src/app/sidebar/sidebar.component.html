@@ -1,0 +1,38 @@
+<div class="sidebar">
+    <div class="logo">YOURLOGO</div>
+    <ul class="menu">
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Dashboard'}" (click)="setActiveMenuItem('Dashboard')">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+        </li>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Users'}" (click)="setActiveMenuItem('Users')">
+            <mat-icon>people</mat-icon>
+            <span>Users</span>
+        </li>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Documents'}" (click)="setActiveMenuItem('Documents')">
+            <mat-icon>description</mat-icon>
+            <span>Documents</span>
+        </li>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Photos'}" (click)="setActiveMenuItem('Photos')">
+            <mat-icon>photo</mat-icon>
+            <span>Photos</span>
+        </li>
+        <br>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Hierarchy'}" (click)="setActiveMenuItem('Hierarchy')">
+            <mat-icon>account_tree</mat-icon>
+            <span>Hierarchy</span>
+        </li>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Message'}" (click)="setActiveMenuItem('Message')">
+            <mat-icon>message</mat-icon>
+            <span>Message</span>
+        </li>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Help'}" (click)="setActiveMenuItem('Help')">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </li>
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Setting'}" (click)="setActiveMenuItem('Setting')">
+            <mat-icon>settings</mat-icon>
+            <span>Setting</span>
+        </li>
+    </ul>
+</div>

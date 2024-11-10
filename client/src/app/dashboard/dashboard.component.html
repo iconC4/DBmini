@@ -1,0 +1,34 @@
+<div class="dashboard">
+    <!-- Top Header Section -->
+    <header class="dashboard-header">
+        <div class="greeting">
+            <h2>Hello, Lekan</h2>
+            <p>Have a nice day</p>
+            <h3>Users Dashboard</h3>
+        </div>
+
+        <div class="user-info">
+            <mat-icon>notifications</mat-icon>
+            <div class="profile">
+                <span>Lekan Okeowo</span>
+                <span class="role">Admin</span>
+            </div>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+    </header>
+
+    <!-- Controls Section -->
+    <div class="controls">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput placeholder="Search">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="add-user">Add user +</button>
+        <button mat-button class="sort-btn">Sort by</button>
+        <button mat-button class="saved-search-btn">Saved search</button>
+    </div>
+
+    <!-- User List Component -->
+    <app-user-list></app-user-list>
+</div>
