@@ -20,12 +20,3 @@ obj/
 # ไฟล์ที่เกี่ยวข้องกับ Visual Studio
 .vs/
 .vscode/
-
-# ไฟล์ที่เกี่ยวข้องกับการจัดการ NuGet
-packages/
-project.lock.json
-
-# ไฟล์ที่เกี่ยวข้องกับการ Build
-node_modules/
-dist/
-tmp/
