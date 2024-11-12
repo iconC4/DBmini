@@ -29,7 +29,7 @@ public class UsersController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
     {
-        var users = await _userRepository.GetAllAsync(); // ใช้ GetAllAsync ใน IUserRepository
+        var users = await _userRepository.GetAllAsync(); 
 
         return Ok(new Response<IEnumerable<User>>
         {

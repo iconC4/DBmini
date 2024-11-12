@@ -1,0 +1,104 @@
+<li mat-dialog-title>Add User</li>
+
+<div mat-dialog-content>
+    <form>
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>User ID</mat-label>
+                <input matInput [(ngModel)]="user.userId" name="userId" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput [(ngModel)]="user.firstName" name="firstName" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput [(ngModel)]="user.lastName" name="lastName" required />
+            </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Email ID</mat-label>
+                <input matInput [(ngModel)]="user.email" name="email" type="email" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Mobile No</mat-label>
+                <input matInput [(ngModel)]="user.phone" name="phone" type="tel" />
+            </mat-form-field>
+
+            <!-- <mat-form-field>
+                <mat-label>Select Role Type</mat-label>
+                <mat-select [(ngModel)]="user.roleName" name="roleName">
+                    <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Select Role Type</mat-label>
+                    <mat-select [(ngModel)]="user.roleId" name="roleId" (selectionChange)="onRoleSelect($event.value)">
+                        <mat-option *ngFor="let role of roles" [value]="role.roleId">{{ role.roleName }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput [(ngModel)]="user.username" name="username" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput [(ngModel)]="user.password" name="password" type="password" required />
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput name="confirmPassword" type="password" required />
+            </mat-form-field>
+        </div>
+
+        <!-- Permission Table -->
+        <table mat-table [dataSource]="permissions" class="permission-table mat-elevation-z8">
+            <ng-container matColumnDef="module">
+                <th mat-header-cell *matHeaderCellDef>Module Permission</th>
+                <td mat-cell *matCellDef="let permission">{{ permission.permissionName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="read">
+                <th mat-header-cell *matHeaderCellDef>Read</th>
+                <td mat-cell *matCellDef="let permission">
+                    <mat-checkbox [(ngModel)]="permission.isReadable" name="readCheckbox"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="write">
+                <th mat-header-cell *matHeaderCellDef>Write</th>
+                <td mat-cell *matCellDef="let permission">
+                    <mat-checkbox [(ngModel)]="permission.isWritable" name="writeCheckbox"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>Delete</th>
+                <td mat-cell *matCellDef="let permission">
+                    <mat-checkbox [(ngModel)]="permission.isDeletable" name="deleteCheckbox"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </form>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onAddUser()">Add User</button>
+</div>

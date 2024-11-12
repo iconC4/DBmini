@@ -1,0 +1,148 @@
+/* General Modal Styling */
+
+mat-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 8px;
+    /* Further reduce padding */
+    color: #333;
+}
+
+mat-dialog-content {
+    padding: 16px;
+    /* Reduce padding */
+    background-color: #f9fafc;
+    overflow-y: auto;
+}
+
+mat-dialog-actions {
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f9fafc;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    /* Reduced gap */
+    margin-bottom: 16px;
+}
+
+mat-form-field {
+    flex: 1;
+    min-width: 130px;
+    /* Reduced min-width */
+    background-color: #f1f3f5;
+    border-radius: 4px;
+}
+
+
+/* Permission Table Styling */
+
+.permission-table {
+    width: 100%;
+    margin-top: 12px;
+    border-collapse: collapse;
+}
+
+.permission-table th,
+.permission-table td {
+    padding: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+mat-form-field.full-width {
+    width: 100%;
+}
+
+mat-form-field .mat-form-field-wrapper {
+    padding: 4px 8px;
+    /* Reduced padding */
+}
+
+
+/* Input Label Styling */
+
+mat-label {
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+    /* Reduced font size */
+}
+
+
+/* Permission Table Styling */
+
+.permission-table {
+    width: 100%;
+    margin-top: 12px;
+    /* Reduced margin */
+    border-collapse: collapse;
+}
+
+.permission-table th {
+    background-color: #f1f3f5;
+    font-weight: bold;
+    padding: 6px;
+    /* Reduced padding */
+    text-align: left;
+    color: #333;
+    font-size: 14px;
+    /* Reduced font size */
+}
+
+.permission-table td {
+    padding: 6px;
+    /* Reduced padding */
+    text-align: center;
+    font-size: 14px;
+    /* Reduced font size */
+}
+
+.permission-table th,
+.permission-table td {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+/* Checkbox Alignment */
+
+mat-checkbox {
+    display: inline-flex;
+    justify-content: center;
+}
+
+
+/* Button Styling */
+
+button[mat-raised-button] {
+    font-weight: bold;
+    color: white;
+}
+
+button[mat-button] {
+    color: #555;
+}
+
+
+/* Add User Button Styling */
+
+button[mat-raised-button][color="primary"] {
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 800px) {
+    .form-group {
+        flex-direction: column;
+    }
+    mat-form-field {
+        width: 100%;
+    }
+}

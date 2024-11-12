@@ -24,7 +24,7 @@ namespace server.Infrastructure.Repositories
 
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await _context.Users.Include(u => u.Permissions).ToListAsync();
+            return await _context.Users.Include(u => u.Permissions).Include(u => u.Role).ToListAsync();
         }
 
         public async Task<User?> GetUserById(string id)

@@ -4,58 +4,60 @@
         <h3>List Users</h3>
     </div>
 
-    <table mat-table [dataSource]="users" class="mat-elevation-z8 custom-table">
-        <!-- Name Column -->
+    <!-- Error Message -->
+    <div *ngIf="error" class="error-message">
+        {{ error }}
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <!-- User Table -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
             <td mat-cell *matCellDef="let user">
                 <div class="name-cell">
-                    <strong>{{user.name}}</strong>
+                    <strong>{{user.firstName}} {{user.lastName}}</strong>
                     <p class="email">{{user.email}}</p>
                 </div>
             </td>
         </ng-container>
 
+        <ng-container matColumnDef="createDate">
+            <th mat-header-cell *matHeaderCellDef> Create Date </th>
+            <td mat-cell *matCellDef="let user"> {{'11 Otc, 2015'}} </td>
+        </ng-container>
+
         <!-- Role Column -->
         <ng-container matColumnDef="role">
             <th mat-header-cell *matHeaderCellDef> Role </th>
-            <td mat-cell *matCellDef="let user">
-                <span [ngClass]="{'role-badge': true, 
-                                  'super-admin': user.role === 'Super Admin', 
-                                  'admin': user.role === 'Admin', 
-                                  'hr-admin': user.role === 'HR Admin', 
-                                  'employee': user.role === 'Employee'}">
-                    {{ user.role }}
-                </span>
-            </td>
-        </ng-container>
-
-        <!-- Create Date Column -->
-        <ng-container matColumnDef="createDate">
-            <th mat-header-cell *matHeaderCellDef> Create Date </th>
-            <td mat-cell *matCellDef="let user"> {{user.createDate}} </td>
-        </ng-container>
-
-        <!-- Role Description Column -->
-        <ng-container matColumnDef="roleDescription">
-            <th mat-header-cell *matHeaderCellDef> Role Description </th>
-            <td mat-cell *matCellDef="let user"> {{user.roleDescription}} </td>
+            <td mat-cell *matCellDef="let user"> {{user.role?.roleName || 'N/A'}} </td>
         </ng-container>
 
         <!-- Actions Column -->
         <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let user">
-                <button mat-icon-button color="primary" aria-label="Edit user">
+                <button mat-icon-button [routerLink]="['/users', user.userId, 'edit']" matTooltip="Edit User">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button color="warn" aria-label="Delete user">
+                <button mat-icon-button (click)="deleteUser(user.userId)" matTooltip="Delete User">
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>
         </ng-container>
 
+        <!-- Header and Row Definitions -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <!-- No Users Message -->
+    <div *ngIf="!isLoading && dataSource.data.length === 0" class="no-data-message">
+        No users found.
+    </div>
 </div>

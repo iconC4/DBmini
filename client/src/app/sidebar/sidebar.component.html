@@ -9,10 +9,16 @@
             <mat-icon>people</mat-icon>
             <span>Users</span>
         </li>
-        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Documents'}" (click)="setActiveMenuItem('Documents')">
+        <!-- <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Documents'}" (click)="setActiveMenuItem('Documents')">
+            <mat-icon>description</mat-icon>
+            <span>Documents</span>
+        </li> -->
+
+        <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Documents'}" routerLink="/doc-list" (click)="setActiveMenuItem('Documents')">
             <mat-icon>description</mat-icon>
             <span>Documents</span>
         </li>
+
         <li class="menu-item" [ngClass]="{'active': activeMenuItem === 'Photos'}" (click)="setActiveMenuItem('Photos')">
             <mat-icon>photo</mat-icon>
             <span>Photos</span>
